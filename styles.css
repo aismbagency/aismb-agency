@@ -1125,18 +1125,25 @@ body.menu-open {
   gap: 0;
 }
 
-.footer-mark {
-  width: auto;
-  height: 56px;
-  margin-bottom: 0.35rem;
-  mix-blend-mode: lighten;
+.footer-name {
+  margin: 0 0 1.75rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1;
 }
 
-.footer-wordmark {
-  width: min(280px, 72vw);
-  height: auto;
-  margin: 0.15rem 0 1.75rem;
-  mix-blend-mode: lighten;
+.footer-name .brand-name {
+  font-family: var(--display);
+  font-size: 1.45rem;
+  color: var(--text);
+}
+
+.footer-name .brand-entity {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  color: var(--muted);
 }
 
 .footer-links {

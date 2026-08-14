@@ -227,7 +227,7 @@
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0, rootMargin: "0px 0px 0px 0px" }
     );
 
     revealables.forEach(function (el) {
@@ -247,6 +247,21 @@
   }
 
   prepareReveals();
+
+  function revealHashTarget() {
+    var id = (window.location.hash || "").replace(/^#/, "");
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (!target) return;
+    target.querySelectorAll("[data-reveal]").forEach(markIn);
+  }
+
+  window.addEventListener("hashchange", revealHashTarget);
+  revealHashTarget();
+
+  window.setTimeout(function () {
+    document.querySelectorAll("[data-reveal]:not(.is-in)").forEach(markIn);
+  }, 1500);
 
   function onMotionChange(event) {
     reduceMotion = event.matches;
